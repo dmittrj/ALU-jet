@@ -58,6 +58,7 @@ namespace ALU_jet
                         ALU1_Microprogram_RTB.SelectionColor = Color.SaddleBrown;
                     } while (ALU1_Microprogram_RTB.SelectedText != ":");
                     i--;
+                    continue;
                 }
                 if (ALU1_Microprogram_RTB.SelectedText == "y")
                 {
@@ -71,12 +72,22 @@ namespace ALU_jet
                             ALU1_Microprogram_RTB.Select(i, 3);
                             ALU1_Microprogram_RTB.SelectionColor = Color.Firebrick;
                             i += 2;
+                            continue;
                         }
                         else i -= 2;
                     }
                     else i--;
                 }
-
+                ALU1_Microprogram_RTB.Select(i, 1);
+                if (ALU1_Microprogram_RTB.SelectedText == ";")
+                {
+                    do
+                    {
+                        ALU1_Microprogram_RTB.Select(++i, 1);
+                        ALU1_Microprogram_RTB.SelectionColor = Color.Teal;
+                    } while (ALU1_Microprogram_RTB.SelectedText != "\n" &&
+                    i < ALU1_Microprogram_RTB.Text.Length);
+                }
             }
             ALU1_Microprogram_RTB.Select(s, d);
             ALU1_SyntaxHighlight_Timer.Stop();

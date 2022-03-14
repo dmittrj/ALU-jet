@@ -53,7 +53,7 @@ namespace ALU_jet
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(783, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(858, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,10 +127,11 @@ namespace ALU_jet
             // 
             // ALU1_Microprogram_RTB
             // 
+            this.ALU1_Microprogram_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ALU1_Microprogram_RTB.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ALU1_Microprogram_RTB.Location = new System.Drawing.Point(622, 56);
             this.ALU1_Microprogram_RTB.Name = "ALU1_Microprogram_RTB";
-            this.ALU1_Microprogram_RTB.Size = new System.Drawing.Size(161, 300);
+            this.ALU1_Microprogram_RTB.Size = new System.Drawing.Size(236, 300);
             this.ALU1_Microprogram_RTB.TabIndex = 3;
             this.ALU1_Microprogram_RTB.Text = "";
             this.ALU1_Microprogram_RTB.TextChanged += new System.EventHandler(this.ALU1_Microprogram_RTB_TextChanged);
@@ -155,7 +156,7 @@ namespace ALU_jet
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(783, 478);
+            this.ClientSize = new System.Drawing.Size(858, 478);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ALU1_Microprogram_RTB);
             this.Controls.Add(this.panel2);
