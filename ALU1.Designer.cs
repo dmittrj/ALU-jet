@@ -39,12 +39,23 @@ namespace ALU_jet
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ALU1_Microprogram_RTB = new System.Windows.Forms.RichTextBox();
+            this.ALU1_Micro_CMS = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.описаниеКомандыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.вырезатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.копироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вставитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.добавитьТочкуОстановаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.ALU1_SyntaxHighlight_Timer = new System.Windows.Forms.Timer(this.components);
             this.ALU1_Temp_RTB = new System.Windows.Forms.RichTextBox();
+            this.Main_CreateProject_Button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.ALU1_Micro_CMS.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -129,6 +140,7 @@ namespace ALU_jet
             // ALU1_Microprogram_RTB
             // 
             this.ALU1_Microprogram_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ALU1_Microprogram_RTB.ContextMenuStrip = this.ALU1_Micro_CMS;
             this.ALU1_Microprogram_RTB.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ALU1_Microprogram_RTB.Location = new System.Drawing.Point(622, 56);
             this.ALU1_Microprogram_RTB.Name = "ALU1_Microprogram_RTB";
@@ -136,6 +148,61 @@ namespace ALU_jet
             this.ALU1_Microprogram_RTB.TabIndex = 3;
             this.ALU1_Microprogram_RTB.Text = "";
             this.ALU1_Microprogram_RTB.TextChanged += new System.EventHandler(this.ALU1_Microprogram_RTB_TextChanged);
+            // 
+            // ALU1_Micro_CMS
+            // 
+            this.ALU1_Micro_CMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.описаниеКомандыToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.вырезатьToolStripMenuItem,
+            this.копироватьToolStripMenuItem,
+            this.вставитьToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.добавитьТочкуОстановаToolStripMenuItem});
+            this.ALU1_Micro_CMS.Name = "ALU1_Micro_CMS";
+            this.ALU1_Micro_CMS.Size = new System.Drawing.Size(214, 126);
+            // 
+            // описаниеКомандыToolStripMenuItem
+            // 
+            this.описаниеКомандыToolStripMenuItem.Enabled = false;
+            this.описаниеКомандыToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.описаниеКомандыToolStripMenuItem.Name = "описаниеКомандыToolStripMenuItem";
+            this.описаниеКомандыToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.описаниеКомандыToolStripMenuItem.Text = "Описание команды";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
+            // 
+            // вырезатьToolStripMenuItem
+            // 
+            this.вырезатьToolStripMenuItem.Name = "вырезатьToolStripMenuItem";
+            this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.вырезатьToolStripMenuItem.Text = "Вырезать";
+            // 
+            // копироватьToolStripMenuItem
+            // 
+            this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
+            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.копироватьToolStripMenuItem.Text = "Копировать";
+            // 
+            // вставитьToolStripMenuItem
+            // 
+            this.вставитьToolStripMenuItem.Name = "вставитьToolStripMenuItem";
+            this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.вставитьToolStripMenuItem.Text = "Вставить";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(210, 6);
+            // 
+            // добавитьТочкуОстановаToolStripMenuItem
+            // 
+            this.добавитьТочкуОстановаToolStripMenuItem.Name = "добавитьТочкуОстановаToolStripMenuItem";
+            this.добавитьТочкуОстановаToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.добавитьТочкуОстановаToolStripMenuItem.Text = "Добавить точку останова";
             // 
             // label2
             // 
@@ -163,12 +230,34 @@ namespace ALU_jet
             this.ALU1_Temp_RTB.Text = "";
             this.ALU1_Temp_RTB.Visible = false;
             // 
+            // Main_CreateProject_Button
+            // 
+            this.Main_CreateProject_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Main_CreateProject_Button.Location = new System.Drawing.Point(622, 362);
+            this.Main_CreateProject_Button.Name = "Main_CreateProject_Button";
+            this.Main_CreateProject_Button.Size = new System.Drawing.Size(137, 26);
+            this.Main_CreateProject_Button.TabIndex = 6;
+            this.Main_CreateProject_Button.Text = "Собрать и запустить";
+            this.Main_CreateProject_Button.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(765, 362);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 26);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Шаг";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ALU1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Main_CreateProject_Button);
             this.Controls.Add(this.ALU1_Temp_RTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ALU1_Microprogram_RTB);
@@ -187,6 +276,7 @@ namespace ALU_jet
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.ALU1_Micro_CMS.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +296,15 @@ namespace ALU_jet
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer ALU1_SyntaxHighlight_Timer;
         private System.Windows.Forms.RichTextBox ALU1_Temp_RTB;
+        private System.Windows.Forms.Button Main_CreateProject_Button;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip ALU1_Micro_CMS;
+        private System.Windows.Forms.ToolStripMenuItem описаниеКомандыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem вырезатьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem копироватьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вставитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem добавитьТочкуОстановаToolStripMenuItem;
     }
 }
