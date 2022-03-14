@@ -41,6 +41,7 @@ namespace ALU_jet
             this.ALU1_Microprogram_RTB = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ALU1_SyntaxHighlight_Timer = new System.Windows.Forms.Timer(this.components);
+            this.ALU1_Temp_RTB = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -151,12 +152,24 @@ namespace ALU_jet
             this.ALU1_SyntaxHighlight_Timer.Interval = 1000;
             this.ALU1_SyntaxHighlight_Timer.Tick += new System.EventHandler(this.ALU1_SyntaxHighlight_Timer_Tick);
             // 
+            // ALU1_Temp_RTB
+            // 
+            this.ALU1_Temp_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ALU1_Temp_RTB.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_Temp_RTB.Location = new System.Drawing.Point(841, 454);
+            this.ALU1_Temp_RTB.Name = "ALU1_Temp_RTB";
+            this.ALU1_Temp_RTB.Size = new System.Drawing.Size(17, 12);
+            this.ALU1_Temp_RTB.TabIndex = 5;
+            this.ALU1_Temp_RTB.Text = "";
+            this.ALU1_Temp_RTB.Visible = false;
+            // 
             // ALU1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.ALU1_Temp_RTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ALU1_Microprogram_RTB);
             this.Controls.Add(this.panel2);
@@ -192,5 +205,6 @@ namespace ALU_jet
         private System.Windows.Forms.RichTextBox ALU1_Microprogram_RTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer ALU1_SyntaxHighlight_Timer;
+        private System.Windows.Forms.RichTextBox ALU1_Temp_RTB;
     }
 }
