@@ -25,5 +25,13 @@ namespace ALU_jet
         {
             Main_Description_Label.Text = Main_ProjectTypesDescriptions[Main_ProjectTypes_LB.SelectedIndex];
         }
+
+        [STAThread]
+        private void Main_CreateProject_Button_Click(object sender, EventArgs e)
+        {
+            ALU1 alu1 = new();
+            alu1.Show();
+            this.Hide();
+        }
     }
 }

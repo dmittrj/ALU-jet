@@ -34,7 +34,7 @@ namespace ALU_jet
             this.Jd_ProjectName_TB = new System.Windows.Forms.TextBox();
             this.Jd_ProjectExtension_Label = new System.Windows.Forms.Label();
             this.Main_Description_Label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Main_CreateProject_Button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -89,15 +89,16 @@ namespace ALU_jet
             this.Main_Description_Label.TabIndex = 4;
             this.Main_Description_Label.Text = "Проект ALU-1";
             // 
-            // button1
+            // Main_CreateProject_Button
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(24, 353);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 26);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Создать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Main_CreateProject_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Main_CreateProject_Button.Location = new System.Drawing.Point(24, 353);
+            this.Main_CreateProject_Button.Name = "Main_CreateProject_Button";
+            this.Main_CreateProject_Button.Size = new System.Drawing.Size(100, 26);
+            this.Main_CreateProject_Button.TabIndex = 5;
+            this.Main_CreateProject_Button.Text = "Создать";
+            this.Main_CreateProject_Button.UseVisualStyleBackColor = true;
+            this.Main_CreateProject_Button.Click += new System.EventHandler(this.Main_CreateProject_Button_Click);
             // 
             // label2
             // 
@@ -130,7 +131,7 @@ namespace ALU_jet
             this.button2.Text = "Локальный";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // ALUjetLaunch
+            // ALU_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,13 +140,13 @@ namespace ALU_jet
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Main_CreateProject_Button);
             this.Controls.Add(this.Main_Description_Label);
             this.Controls.Add(this.Jd_ProjectExtension_Label);
             this.Controls.Add(this.Jd_ProjectName_TB);
             this.Controls.Add(this.Main_ProjectTypes_LB);
             this.Controls.Add(this.Jd_CreateProject_Label);
-            this.Name = "ALUjetLaunch";
+            this.Name = "ALU_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ALU-jet — начало работы";
             this.ResumeLayout(false);
@@ -160,7 +161,7 @@ namespace ALU_jet
         private System.Windows.Forms.TextBox Jd_ProjectName_TB;
         private System.Windows.Forms.Label Jd_ProjectExtension_Label;
         private System.Windows.Forms.Label Main_Description_Label;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Main_CreateProject_Button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;

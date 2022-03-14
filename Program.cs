@@ -8,6 +8,7 @@ namespace ALU_jet
 {
     static class Program
     {
+        public static ALU_Main main;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -17,7 +18,7 @@ namespace ALU_jet
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ALU_Main());
+            Application.Run(main = new ALU_Main());
         }
     }
 }
