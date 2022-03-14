@@ -55,9 +55,28 @@ namespace ALU_jet
                     do
                     {
                         ALU1_Microprogram_RTB.Select(i++, 1);
-                        ALU1_Microprogram_RTB.SelectionColor = Color.Orchid;
+                        ALU1_Microprogram_RTB.SelectionColor = Color.SaddleBrown;
                     } while (ALU1_Microprogram_RTB.SelectedText != ":");
+                    i--;
                 }
+                if (ALU1_Microprogram_RTB.SelectedText == "y")
+                {
+                    ALU1_Microprogram_RTB.Select(++i, 1);
+                    if (ALU1_Microprogram_RTB.SelectedText == "2")
+                    {
+                        ALU1_Microprogram_RTB.Select(++i, 1);
+                        if (ALU1_Microprogram_RTB.SelectedText == "1")
+                        {
+                            i -= 2;
+                            ALU1_Microprogram_RTB.Select(i, 3);
+                            ALU1_Microprogram_RTB.SelectionColor = Color.Firebrick;
+                            i += 2;
+                        }
+                        else i -= 2;
+                    }
+                    else i--;
+                }
+
             }
             ALU1_Microprogram_RTB.Select(s, d);
             ALU1_SyntaxHighlight_Timer.Stop();
