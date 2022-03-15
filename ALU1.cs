@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace ALU_jet
 {
     public partial class ALU1 : Form
     {
+        Hashtable commands = new Hashtable();
+        
         public ALU1()
         {
             InitializeComponent();
@@ -19,7 +22,39 @@ namespace ALU_jet
 
         private void ALU1_Load(object sender, EventArgs e)
         {
-
+            commands["y0"] = "Шина := Ax";
+            commands["y1"] = "Шина := Bx";
+            commands["y2"] = "A := Шина";
+            commands["y3"] = "B := Шина";
+            commands["y4"] = "R := A";
+            commands["y5"] = "R := ~A";
+            commands["y6"] = "S := B";
+            commands["y7"] = "S := ~B";
+            commands["y8"] = "Q := R + S + p0";
+            commands["y9"] = "Q := R - S - p0";
+            commands["y10"] = "Q := S - R - p0";
+            commands["y11"] = "Q := S & R";
+            commands["y12"] = "Q := S v R";
+            commands["y13"] = "Q := S (+) R";
+            commands["y14"] = "p0 := 0";
+            commands["y15"] = "p0 := 1";
+            commands["y16"] = "F := Q";
+            commands["y17"] = "F := DL >> Q >> DR";
+            commands["y18"] = "F := DL << Q << DR";
+            commands["y19"] = "F := DR >> Q >> DR";
+            commands["y20"] = "F := << Q << Z";
+            commands["y21"] = "Стоп";
+            commands["y22"] = "Счетчик := 0";
+            commands["y23"] = "Счетчик += 1";
+            commands["y24"] = "С := F";
+            commands["y25"] = "D := F";
+            commands["y26"] = "Шина := C";
+            commands["y27"] = "Шина := D";
+            commands["y28"] = "DL := 0";
+            commands["y29"] = "DL := 1";
+            commands["y30"] = "DR := 0";
+            commands["y31"] = "DR := 1";
+            commands["y32"] = "Q := R";
         }
 
         private void ALU1_FormClosing(object sender, FormClosingEventArgs e)
@@ -119,6 +154,52 @@ namespace ALU_jet
         private void ALU1_Paste_CMI_Click(object sender, EventArgs e)
         {
             ALU1_Microprogram_RTB.Paste();
+        }
+
+        private void ALU1_Micro_CMS_Opening(object sender, CancelEventArgs e)
+        {
+            int s = ALU1_Microprogram_RTB.SelectionStart;
+            int l = 1;
+            ALU1_Temp_RTB.Select(s, l);
+            if (ALU1_Temp_RTB.SelectedText == " ")
+            {
+                ALU1_Description_CMI.Visible = false;
+                ALU1_Description_CMSep.Visible = false;
+            } else
+            {
+                do
+                {
+                    if (--s < 0) break;
+                    ALU1_Temp_RTB.Select(s, ++l);
+                }
+                while ((ALU1_Temp_RTB.SelectedText[0] != ' ' &&
+                ALU1_Temp_RTB.SelectedText[0] != '\n' &&
+                ALU1_Temp_RTB.SelectedText[0] != ':') &&
+                s >= 0);
+                s++;
+                ALU1_Temp_RTB.Select(s, l);
+                while ((ALU1_Temp_RTB.SelectedText[^1] != ' ' &&
+                ALU1_Temp_RTB.SelectedText[^1] != '\n' &&
+                ALU1_Temp_RTB.SelectedText[^1] != ',' &&
+                ALU1_Temp_RTB.SelectedText[^1] != ';') &&
+                s + l <= ALU1_Temp_RTB.Text.Length)
+                {
+                    ALU1_Temp_RTB.Select(s, ++l);
+                }
+                l--;
+                ALU1_Temp_RTB.Select(s, l);
+                if (commands.ContainsKey(ALU1_Temp_RTB.SelectedText)) {
+                    ALU1_Description_CMI.Text = commands[ALU1_Temp_RTB.SelectedText].ToString();
+                    ALU1_Description_CMI.Visible = true;
+                    ALU1_Description_CMSep.Visible = true;
+                }
+                else
+                {
+                    ALU1_Description_CMI.Visible = false;
+                    ALU1_Description_CMSep.Visible = false;
+                }
+                //Text = ALU1_Temp_RTB.SelectedText;
+            }
         }
     }
 }

@@ -40,8 +40,8 @@ namespace ALU_jet
             this.label1 = new System.Windows.Forms.Label();
             this.ALU1_Microprogram_RTB = new System.Windows.Forms.RichTextBox();
             this.ALU1_Micro_CMS = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.описаниеКомандыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ALU1_Description_CMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.ALU1_Description_CMSep = new System.Windows.Forms.ToolStripSeparator();
             this.ALU1_Cut_CMI = new System.Windows.Forms.ToolStripMenuItem();
             this.ALU1_Copy_CMI = new System.Windows.Forms.ToolStripMenuItem();
             this.ALU1_Paste_CMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,28 +152,29 @@ namespace ALU_jet
             // ALU1_Micro_CMS
             // 
             this.ALU1_Micro_CMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.описаниеКомандыToolStripMenuItem,
-            this.toolStripSeparator1,
+            this.ALU1_Description_CMI,
+            this.ALU1_Description_CMSep,
             this.ALU1_Cut_CMI,
             this.ALU1_Copy_CMI,
             this.ALU1_Paste_CMI,
             this.toolStripSeparator2,
             this.добавитьТочкуОстановаToolStripMenuItem});
             this.ALU1_Micro_CMS.Name = "ALU1_Micro_CMS";
-            this.ALU1_Micro_CMS.Size = new System.Drawing.Size(214, 148);
+            this.ALU1_Micro_CMS.Size = new System.Drawing.Size(214, 126);
+            this.ALU1_Micro_CMS.Opening += new System.ComponentModel.CancelEventHandler(this.ALU1_Micro_CMS_Opening);
             // 
-            // описаниеКомандыToolStripMenuItem
+            // ALU1_Description_CMI
             // 
-            this.описаниеКомандыToolStripMenuItem.Enabled = false;
-            this.описаниеКомандыToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.описаниеКомандыToolStripMenuItem.Name = "описаниеКомандыToolStripMenuItem";
-            this.описаниеКомандыToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.описаниеКомандыToolStripMenuItem.Text = "Описание команды";
+            this.ALU1_Description_CMI.Enabled = false;
+            this.ALU1_Description_CMI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_Description_CMI.Name = "ALU1_Description_CMI";
+            this.ALU1_Description_CMI.Size = new System.Drawing.Size(213, 22);
+            this.ALU1_Description_CMI.Text = "Описание команды";
             // 
-            // toolStripSeparator1
+            // ALU1_Description_CMSep
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
+            this.ALU1_Description_CMSep.Name = "ALU1_Description_CMSep";
+            this.ALU1_Description_CMSep.Size = new System.Drawing.Size(210, 6);
             // 
             // ALU1_Cut_CMI
             // 
@@ -226,9 +227,9 @@ namespace ALU_jet
             // 
             this.ALU1_Temp_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ALU1_Temp_RTB.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ALU1_Temp_RTB.Location = new System.Drawing.Point(841, 454);
+            this.ALU1_Temp_RTB.Location = new System.Drawing.Point(830, 452);
             this.ALU1_Temp_RTB.Name = "ALU1_Temp_RTB";
-            this.ALU1_Temp_RTB.Size = new System.Drawing.Size(17, 12);
+            this.ALU1_Temp_RTB.Size = new System.Drawing.Size(16, 14);
             this.ALU1_Temp_RTB.TabIndex = 5;
             this.ALU1_Temp_RTB.Text = "";
             this.ALU1_Temp_RTB.Visible = false;
@@ -302,8 +303,8 @@ namespace ALU_jet
         private System.Windows.Forms.Button Main_CreateProject_Button;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip ALU1_Micro_CMS;
-        private System.Windows.Forms.ToolStripMenuItem описаниеКомандыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem ALU1_Description_CMI;
+        private System.Windows.Forms.ToolStripSeparator ALU1_Description_CMSep;
         private System.Windows.Forms.ToolStripMenuItem ALU1_Cut_CMI;
         private System.Windows.Forms.ToolStripMenuItem ALU1_Copy_CMI;
         private System.Windows.Forms.ToolStripMenuItem ALU1_Paste_CMI;
