@@ -52,10 +52,12 @@ namespace ALU_jet
             this.ALU1_Temp_RTB = new System.Windows.Forms.RichTextBox();
             this.Main_CreateProject_Button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.ALU1_Background_PB = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.ALU1_Micro_CMS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ALU1_Background_PB)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -256,6 +258,14 @@ namespace ALU_jet
             this.button1.Text = "Шаг";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // ALU1_Background_PB
+            // 
+            this.ALU1_Background_PB.Location = new System.Drawing.Point(0, 28);
+            this.ALU1_Background_PB.Name = "ALU1_Background_PB";
+            this.ALU1_Background_PB.Size = new System.Drawing.Size(616, 449);
+            this.ALU1_Background_PB.TabIndex = 8;
+            this.ALU1_Background_PB.TabStop = false;
+            // 
             // ALU1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -270,6 +280,7 @@ namespace ALU_jet
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.ALU1_Background_PB);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ALU1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -283,6 +294,7 @@ namespace ALU_jet
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ALU1_Micro_CMS.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ALU1_Background_PB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +324,6 @@ namespace ALU_jet
         private System.Windows.Forms.ToolStripMenuItem ALU1_Paste_CMI;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem добавитьТочкуОстановаToolStripMenuItem;
+        private System.Windows.Forms.PictureBox ALU1_Background_PB;
     }
 }

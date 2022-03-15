@@ -58,6 +58,29 @@ namespace ALU_jet
             commands["y30"] = "DR := 0";
             commands["y31"] = "DR := 1";
             commands["y32"] = "Q := R";
+            Bitmap alu1bmp = new(ALU1_Background_PB.Width, ALU1_Background_PB.Height);
+            using Graphics grfx = Graphics.FromImage(alu1bmp);
+            Point[] shina =
+            {
+                new Point(90, 85),
+                new Point(500, 85),
+                new Point(500, 430),
+                new Point(90, 430),
+                new Point(90, 422),
+                new Point(492, 422),
+                new Point(492, 93),
+                new Point(90, 93)
+            };
+            Point[] tr1 =
+            {
+                new Point(168, 75),
+                new Point(176, 75),
+                new Point(172, 81)
+            };
+            grfx.DrawPolygon(new Pen(Brushes.Black, 1), shina);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(172, 60), new Point(172, 75));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr1);
+            ALU1_Background_PB.Image = alu1bmp;
         }
 
         private void ALU1_FormClosing(object sender, FormClosingEventArgs e)
