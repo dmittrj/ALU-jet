@@ -105,5 +105,20 @@ namespace ALU_jet
             ALU1_Microprogram_RTB.Select(s, d);
             ALU1_SyntaxHighlight_Timer.Stop();
         }
+
+        private void ALU1_Cut_CMI_Click(object sender, EventArgs e)
+        {
+            ALU1_Microprogram_RTB.Cut();
+        }
+
+        private void ALU1_Copy_CMI_Click(object sender, EventArgs e)
+        {
+            ALU1_Microprogram_RTB.Copy();
+        }
+
+        private void ALU1_Paste_CMI_Click(object sender, EventArgs e)
+        {
+            ALU1_Microprogram_RTB.Paste();
+        }
     }
 }

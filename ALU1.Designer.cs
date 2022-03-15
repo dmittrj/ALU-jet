@@ -42,9 +42,9 @@ namespace ALU_jet
             this.ALU1_Micro_CMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.описаниеКомандыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.вырезатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.копироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.вставитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ALU1_Cut_CMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.ALU1_Copy_CMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.ALU1_Paste_CMI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.добавитьТочкуОстановаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
@@ -154,13 +154,13 @@ namespace ALU_jet
             this.ALU1_Micro_CMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.описаниеКомандыToolStripMenuItem,
             this.toolStripSeparator1,
-            this.вырезатьToolStripMenuItem,
-            this.копироватьToolStripMenuItem,
-            this.вставитьToolStripMenuItem,
+            this.ALU1_Cut_CMI,
+            this.ALU1_Copy_CMI,
+            this.ALU1_Paste_CMI,
             this.toolStripSeparator2,
             this.добавитьТочкуОстановаToolStripMenuItem});
             this.ALU1_Micro_CMS.Name = "ALU1_Micro_CMS";
-            this.ALU1_Micro_CMS.Size = new System.Drawing.Size(214, 126);
+            this.ALU1_Micro_CMS.Size = new System.Drawing.Size(214, 148);
             // 
             // описаниеКомандыToolStripMenuItem
             // 
@@ -175,23 +175,26 @@ namespace ALU_jet
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
             // 
-            // вырезатьToolStripMenuItem
+            // ALU1_Cut_CMI
             // 
-            this.вырезатьToolStripMenuItem.Name = "вырезатьToolStripMenuItem";
-            this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.вырезатьToolStripMenuItem.Text = "Вырезать";
+            this.ALU1_Cut_CMI.Name = "ALU1_Cut_CMI";
+            this.ALU1_Cut_CMI.Size = new System.Drawing.Size(213, 22);
+            this.ALU1_Cut_CMI.Text = "Вырезать";
+            this.ALU1_Cut_CMI.Click += new System.EventHandler(this.ALU1_Cut_CMI_Click);
             // 
-            // копироватьToolStripMenuItem
+            // ALU1_Copy_CMI
             // 
-            this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
-            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.копироватьToolStripMenuItem.Text = "Копировать";
+            this.ALU1_Copy_CMI.Name = "ALU1_Copy_CMI";
+            this.ALU1_Copy_CMI.Size = new System.Drawing.Size(213, 22);
+            this.ALU1_Copy_CMI.Text = "Копировать";
+            this.ALU1_Copy_CMI.Click += new System.EventHandler(this.ALU1_Copy_CMI_Click);
             // 
-            // вставитьToolStripMenuItem
+            // ALU1_Paste_CMI
             // 
-            this.вставитьToolStripMenuItem.Name = "вставитьToolStripMenuItem";
-            this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.вставитьToolStripMenuItem.Text = "Вставить";
+            this.ALU1_Paste_CMI.Name = "ALU1_Paste_CMI";
+            this.ALU1_Paste_CMI.Size = new System.Drawing.Size(213, 22);
+            this.ALU1_Paste_CMI.Text = "Вставить";
+            this.ALU1_Paste_CMI.Click += new System.EventHandler(this.ALU1_Paste_CMI_Click);
             // 
             // toolStripSeparator2
             // 
@@ -301,9 +304,9 @@ namespace ALU_jet
         private System.Windows.Forms.ContextMenuStrip ALU1_Micro_CMS;
         private System.Windows.Forms.ToolStripMenuItem описаниеКомандыToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem вырезатьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem копироватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem вставитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ALU1_Cut_CMI;
+        private System.Windows.Forms.ToolStripMenuItem ALU1_Copy_CMI;
+        private System.Windows.Forms.ToolStripMenuItem ALU1_Paste_CMI;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem добавитьТочкуОстановаToolStripMenuItem;
     }
