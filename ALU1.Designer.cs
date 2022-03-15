@@ -30,7 +30,7 @@ namespace ALU_jet
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ALU1_Menu = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ALU1_RegAx_Label = new System.Windows.Forms.TextBox();
@@ -50,26 +50,29 @@ namespace ALU_jet
             this.label2 = new System.Windows.Forms.Label();
             this.ALU1_SyntaxHighlight_Timer = new System.Windows.Forms.Timer(this.components);
             this.ALU1_Temp_RTB = new System.Windows.Forms.RichTextBox();
-            this.Main_CreateProject_Button = new System.Windows.Forms.Button();
+            this.ALU1_Launch_Button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ALU1_Background_PB = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
+            this.ALU1_BusValue_Label = new System.Windows.Forms.Label();
+            this.ALU1_AValue_Label = new System.Windows.Forms.Label();
+            this.ALU1_BValue_Label = new System.Windows.Forms.Label();
+            this.ALU1_Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.ALU1_Micro_CMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ALU1_Background_PB)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // ALU1_Menu
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ALU1_Menu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ALU1_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(858, 27);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.ALU1_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ALU1_Menu.Name = "ALU1_Menu";
+            this.ALU1_Menu.Size = new System.Drawing.Size(858, 27);
+            this.ALU1_Menu.TabIndex = 0;
+            this.ALU1_Menu.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
@@ -238,15 +241,16 @@ namespace ALU_jet
             this.ALU1_Temp_RTB.Text = "";
             this.ALU1_Temp_RTB.Visible = false;
             // 
-            // Main_CreateProject_Button
+            // ALU1_Launch_Button
             // 
-            this.Main_CreateProject_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Main_CreateProject_Button.Location = new System.Drawing.Point(622, 362);
-            this.Main_CreateProject_Button.Name = "Main_CreateProject_Button";
-            this.Main_CreateProject_Button.Size = new System.Drawing.Size(137, 26);
-            this.Main_CreateProject_Button.TabIndex = 6;
-            this.Main_CreateProject_Button.Text = "Собрать и запустить";
-            this.Main_CreateProject_Button.UseVisualStyleBackColor = true;
+            this.ALU1_Launch_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ALU1_Launch_Button.Location = new System.Drawing.Point(622, 362);
+            this.ALU1_Launch_Button.Name = "ALU1_Launch_Button";
+            this.ALU1_Launch_Button.Size = new System.Drawing.Size(137, 26);
+            this.ALU1_Launch_Button.TabIndex = 6;
+            this.ALU1_Launch_Button.Text = "Собрать и запустить";
+            this.ALU1_Launch_Button.UseVisualStyleBackColor = true;
+            this.ALU1_Launch_Button.Click += new System.EventHandler(this.ALU1_Launch_Button_Click);
             // 
             // button1
             // 
@@ -266,29 +270,66 @@ namespace ALU_jet
             this.ALU1_Background_PB.TabIndex = 8;
             this.ALU1_Background_PB.TabStop = false;
             // 
+            // ALU1_BusValue_Label
+            // 
+            this.ALU1_BusValue_Label.AutoSize = true;
+            this.ALU1_BusValue_Label.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_BusValue_Label.Location = new System.Drawing.Point(16, 108);
+            this.ALU1_BusValue_Label.Name = "ALU1_BusValue_Label";
+            this.ALU1_BusValue_Label.Size = new System.Drawing.Size(72, 18);
+            this.ALU1_BusValue_Label.TabIndex = 9;
+            this.ALU1_BusValue_Label.Text = "00000000";
+            // 
+            // ALU1_AValue_Label
+            // 
+            this.ALU1_AValue_Label.AutoSize = true;
+            this.ALU1_AValue_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ALU1_AValue_Label.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_AValue_Label.Location = new System.Drawing.Point(137, 153);
+            this.ALU1_AValue_Label.Name = "ALU1_AValue_Label";
+            this.ALU1_AValue_Label.Size = new System.Drawing.Size(74, 19);
+            this.ALU1_AValue_Label.TabIndex = 10;
+            this.ALU1_AValue_Label.Text = "00000000";
+            this.ALU1_AValue_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // ALU1_BValue_Label
+            // 
+            this.ALU1_BValue_Label.AutoSize = true;
+            this.ALU1_BValue_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ALU1_BValue_Label.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_BValue_Label.Location = new System.Drawing.Point(421, 153);
+            this.ALU1_BValue_Label.Name = "ALU1_BValue_Label";
+            this.ALU1_BValue_Label.Size = new System.Drawing.Size(74, 19);
+            this.ALU1_BValue_Label.TabIndex = 11;
+            this.ALU1_BValue_Label.Text = "00000000";
+            this.ALU1_BValue_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // ALU1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.ALU1_BValue_Label);
+            this.Controls.Add(this.ALU1_AValue_Label);
+            this.Controls.Add(this.ALU1_BusValue_Label);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.Main_CreateProject_Button);
+            this.Controls.Add(this.ALU1_Launch_Button);
             this.Controls.Add(this.ALU1_Temp_RTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ALU1_Microprogram_RTB);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.ALU1_Menu);
             this.Controls.Add(this.ALU1_Background_PB);
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.ALU1_Menu;
             this.Name = "ALU1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ALU-1 — ALU-jet";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ALU1_FormClosing);
             this.Load += new System.EventHandler(this.ALU1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.ALU1_Menu.ResumeLayout(false);
+            this.ALU1_Menu.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -302,7 +343,7 @@ namespace ALU_jet
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip ALU1_Menu;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Jd_CreateProject_Label;
@@ -314,7 +355,7 @@ namespace ALU_jet
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer ALU1_SyntaxHighlight_Timer;
         private System.Windows.Forms.RichTextBox ALU1_Temp_RTB;
-        private System.Windows.Forms.Button Main_CreateProject_Button;
+        private System.Windows.Forms.Button ALU1_Launch_Button;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip ALU1_Micro_CMS;
         private System.Windows.Forms.ToolStripMenuItem ALU1_Description_CMI;
@@ -325,5 +366,8 @@ namespace ALU_jet
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem добавитьТочкуОстановаToolStripMenuItem;
         private System.Windows.Forms.PictureBox ALU1_Background_PB;
+        private System.Windows.Forms.Label ALU1_BusValue_Label;
+        private System.Windows.Forms.Label ALU1_AValue_Label;
+        private System.Windows.Forms.Label ALU1_BValue_Label;
     }
 }

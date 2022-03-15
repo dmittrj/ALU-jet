@@ -13,14 +13,53 @@ namespace ALU_jet
 {
     public partial class ALU1 : Form
     {
-        Hashtable commands = new Hashtable();
-        int Shina = 0;
+        readonly Hashtable commands = new();
+        string Bus = "00000000";
         string Ax = "00000000";
         string Bx = "00000000";
+        string A = "00000000";
+        string B = "00000000";
 
         public ALU1()
         {
             InitializeComponent();
+        }
+
+        private bool PerformCommand(string command)
+        {
+            if (command == "y0")
+            {
+                Bus = Ax;
+                ALU1_BusValue_Label.Text = Bus;
+                return false;
+            }
+            if (command == "y1")
+            {
+                Bus = Bx;
+                ALU1_BusValue_Label.Text = Bus;
+                return false;
+            }
+            if (command == "y2")
+            {
+                A = Bus;
+                ALU1_AValue_Label.Text = A;
+                return false;
+            }
+            if (command == "y3")
+            {
+                B = Bus;
+                ALU1_BValue_Label.Text = B;
+                return false;
+            }
+            if (command == "y21")
+            {
+                return true;
+            }
+            if (command == " " || command == "," || command == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void ALU1_Load(object sender, EventArgs e)
@@ -187,7 +226,7 @@ namespace ALU_jet
             int s = ALU1_Microprogram_RTB.SelectionStart;
             int l = 1;
             ALU1_Temp_RTB.Select(s, l);
-            if (ALU1_Temp_RTB.SelectedText == " ")
+            if (ALU1_Temp_RTB.SelectedText == " " || ALU1_Temp_RTB.Text == "")
             {
                 ALU1_Description_CMI.Visible = false;
                 ALU1_Description_CMSep.Visible = false;
@@ -270,6 +309,47 @@ namespace ALU_jet
                 }
             }
             Bx = ALU1_RegBx_Label.Text;
+        }
+
+        private async void ALU1_Launch_Button_Click(object sender, EventArgs e)
+        {
+            int s = 0;
+            int l = 1;
+            ALU1_Microprogram_RTB.ReadOnly = true;
+            string mp = ALU1_Microprogram_RTB.Text;
+            string currentCommand = mp.Substring(s, l);
+            ALU1_Menu.BackColor = Color.CornflowerBlue;
+            while (true)
+            {
+                while (currentCommand[^1] != ',' &&
+                    currentCommand[^1] != ' ' &&
+                    currentCommand[^1] != '\n')
+                {
+                    if (s + l >= mp.Length) {
+                        break;
+                    };
+                    currentCommand = mp.Substring(s, ++l);
+                }
+                if (s + l < mp.Length)
+                    currentCommand = mp.Substring(s, --l);
+                if (PerformCommand(currentCommand))
+                {
+                    ALU1_Menu.BackColor = Color.WhiteSmoke;
+                    ALU1_Microprogram_RTB.ReadOnly = false;
+                    return;
+                };
+                Text = currentCommand;
+                s += l + 1;
+                if (s + l > mp.Length)
+                {
+                    ALU1_Menu.BackColor = Color.WhiteSmoke;
+                    ALU1_Microprogram_RTB.ReadOnly = false;
+                    return;
+                };
+                currentCommand = mp.Substring(s, 1);
+                l = 1;
+                await Task.Delay(30);
+            }
         }
     }
 }
