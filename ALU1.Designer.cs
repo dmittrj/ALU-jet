@@ -285,7 +285,7 @@ namespace ALU_jet
             this.ALU1_AValue_Label.AutoSize = true;
             this.ALU1_AValue_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ALU1_AValue_Label.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ALU1_AValue_Label.Location = new System.Drawing.Point(137, 153);
+            this.ALU1_AValue_Label.Location = new System.Drawing.Point(151, 153);
             this.ALU1_AValue_Label.Name = "ALU1_AValue_Label";
             this.ALU1_AValue_Label.Size = new System.Drawing.Size(74, 19);
             this.ALU1_AValue_Label.TabIndex = 10;
@@ -297,7 +297,7 @@ namespace ALU_jet
             this.ALU1_BValue_Label.AutoSize = true;
             this.ALU1_BValue_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ALU1_BValue_Label.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ALU1_BValue_Label.Location = new System.Drawing.Point(421, 153);
+            this.ALU1_BValue_Label.Location = new System.Drawing.Point(398, 153);
             this.ALU1_BValue_Label.Name = "ALU1_BValue_Label";
             this.ALU1_BValue_Label.Size = new System.Drawing.Size(74, 19);
             this.ALU1_BValue_Label.TabIndex = 11;
