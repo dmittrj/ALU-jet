@@ -14,7 +14,10 @@ namespace ALU_jet
     public partial class ALU1 : Form
     {
         Hashtable commands = new Hashtable();
-        
+        int Shina = 0;
+        string Ax = "00000000";
+        string Bx = "00000000";
+
         public ALU1()
         {
             InitializeComponent();
@@ -200,6 +203,50 @@ namespace ALU_jet
                 }
                 //Text = ALU1_Temp_RTB.SelectedText;
             }
+        }
+
+        private void ALU1_RegAx_Label_TextChanged(object sender, EventArgs e)
+        {
+            if (ALU1_RegAx_Label.Text.Length > 8)
+            {
+                ALU1_RegAx_Label.Select(ALU1_RegAx_Label.SelectionStart, 1);
+                ALU1_RegAx_Label.SelectedText = "";
+            } 
+            else if (ALU1_RegAx_Label.Text.Length < 8)
+            {
+                ALU1_RegAx_Label.Text = Ax;
+            }
+            foreach (char item in ALU1_RegAx_Label.Text)
+            {
+                if (item != '0' && item != '1')
+                {
+                    ALU1_RegAx_Label.Text = Ax;
+                    return;
+                }
+            }
+            Ax = ALU1_RegAx_Label.Text;
+        }
+
+        private void ALU1_RegBx_Label_TextChanged(object sender, EventArgs e)
+        {
+            if (ALU1_RegBx_Label.Text.Length > 8)
+            {
+                ALU1_RegBx_Label.Select(ALU1_RegBx_Label.SelectionStart, 1);
+                ALU1_RegBx_Label.SelectedText = "";
+            }
+            else if (ALU1_RegBx_Label.Text.Length < 8)
+            {
+                ALU1_RegBx_Label.Text = Bx;
+            }
+            foreach (char item in ALU1_RegBx_Label.Text)
+            {
+                if (item != '0' && item != '1')
+                {
+                    ALU1_RegBx_Label.Text = Bx;
+                    return;
+                }
+            }
+            Bx = ALU1_RegBx_Label.Text;
         }
     }
 }

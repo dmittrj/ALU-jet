@@ -33,10 +33,10 @@ namespace ALU_jet
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Jd_ProjectName_TB = new System.Windows.Forms.TextBox();
+            this.ALU1_RegAx_Label = new System.Windows.Forms.TextBox();
             this.Jd_CreateProject_Label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ALU1_RegBx_Label = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ALU1_Microprogram_RTB = new System.Windows.Forms.RichTextBox();
             this.ALU1_Micro_CMS = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -79,22 +79,23 @@ namespace ALU_jet
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.Jd_ProjectName_TB);
+            this.panel1.Controls.Add(this.ALU1_RegAx_Label);
             this.panel1.Controls.Add(this.Jd_CreateProject_Label);
             this.panel1.Location = new System.Drawing.Point(123, 30);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(102, 58);
             this.panel1.TabIndex = 1;
             // 
-            // Jd_ProjectName_TB
+            // ALU1_RegAx_Label
             // 
-            this.Jd_ProjectName_TB.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Jd_ProjectName_TB.Location = new System.Drawing.Point(4, 25);
-            this.Jd_ProjectName_TB.Name = "Jd_ProjectName_TB";
-            this.Jd_ProjectName_TB.Size = new System.Drawing.Size(83, 26);
-            this.Jd_ProjectName_TB.TabIndex = 3;
-            this.Jd_ProjectName_TB.Text = "00000000";
-            this.Jd_ProjectName_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ALU1_RegAx_Label.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_RegAx_Label.Location = new System.Drawing.Point(4, 25);
+            this.ALU1_RegAx_Label.Name = "ALU1_RegAx_Label";
+            this.ALU1_RegAx_Label.Size = new System.Drawing.Size(83, 26);
+            this.ALU1_RegAx_Label.TabIndex = 3;
+            this.ALU1_RegAx_Label.Text = "00000000";
+            this.ALU1_RegAx_Label.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ALU1_RegAx_Label.TextChanged += new System.EventHandler(this.ALU1_RegAx_Label_TextChanged);
             // 
             // Jd_CreateProject_Label
             // 
@@ -109,22 +110,23 @@ namespace ALU_jet
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.ALU1_RegBx_Label);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(398, 30);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(102, 58);
             this.panel2.TabIndex = 2;
             // 
-            // textBox1
+            // ALU1_RegBx_Label
             // 
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(13, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(83, 26);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "00000000";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ALU1_RegBx_Label.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_RegBx_Label.Location = new System.Drawing.Point(13, 25);
+            this.ALU1_RegBx_Label.Name = "ALU1_RegBx_Label";
+            this.ALU1_RegBx_Label.Size = new System.Drawing.Size(83, 26);
+            this.ALU1_RegBx_Label.TabIndex = 3;
+            this.ALU1_RegBx_Label.Text = "00000000";
+            this.ALU1_RegBx_Label.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ALU1_RegBx_Label.TextChanged += new System.EventHandler(this.ALU1_RegBx_Label_TextChanged);
             // 
             // label1
             // 
@@ -292,9 +294,9 @@ namespace ALU_jet
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Jd_CreateProject_Label;
-        private System.Windows.Forms.TextBox Jd_ProjectName_TB;
+        private System.Windows.Forms.TextBox ALU1_RegAx_Label;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ALU1_RegBx_Label;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox ALU1_Microprogram_RTB;
         private System.Windows.Forms.Label label2;
