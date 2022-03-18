@@ -19,6 +19,8 @@ namespace ALU_jet
         string Bx = "00000000";
         string A = "00000000";
         string B = "00000000";
+        string R = "00000000";
+        string S = "00000000";
 
         public ALU1()
         {
@@ -49,6 +51,38 @@ namespace ALU_jet
             {
                 B = Bus;
                 ALU1_BValue_Label.Text = B;
+                return false;
+            }
+            if (command == "y4")
+            {
+                R = A;
+                ALU1_RValue_Label.Text = R;
+                return false;
+            }
+            if (command == "y5")
+            {
+                R = "";
+                foreach (char digit in A)
+                {
+                    R += digit == '1' ? "0" : "1";
+                }
+                ALU1_RValue_Label.Text = R;
+                return false;
+            }
+            if (command == "y6")
+            {
+                S = B;
+                ALU1_SValue_Label.Text = S;
+                return false;
+            }
+            if (command == "y7")
+            {
+                S = "";
+                foreach (char digit in B)
+                {
+                    S += digit == '1' ? "0" : "1";
+                }
+                ALU1_SValue_Label.Text = S;
                 return false;
             }
             if (command == "y21")
@@ -116,9 +150,33 @@ namespace ALU_jet
                 new Point(176, 75),
                 new Point(172, 81)
             };
+            Point[] tr2 =
+            {
+                new Point(446, 75),
+                new Point(454, 75),
+                new Point(450, 81)
+            };
+            Point[] tr3 =
+            {
+                new Point(183, 115),
+                new Point(191, 115),
+                new Point(187, 121)
+            };
+            Point[] tr4 =
+            {
+                new Point(431, 115),
+                new Point(439, 115),
+                new Point(435, 121)
+            };
             grfx.DrawPolygon(new Pen(Brushes.Black, 1), shina);
             grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(172, 60), new Point(172, 75));
             grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr1);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(450, 60), new Point(450, 75));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr2);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(187, 94), new Point(187, 115));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr3);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(435, 94), new Point(435, 115));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr4);
             ALU1_Background_PB.Image = alu1bmp;
         }
 
@@ -317,6 +375,7 @@ namespace ALU_jet
             int l = 1;
             ALU1_Microprogram_RTB.ReadOnly = true;
             string mp = ALU1_Microprogram_RTB.Text;
+            if (mp.Length == 0) return;
             string currentCommand = mp.Substring(s, l);
             ALU1_Menu.BackColor = Color.CornflowerBlue;
             while (true)
@@ -338,7 +397,7 @@ namespace ALU_jet
                     ALU1_Microprogram_RTB.ReadOnly = false;
                     return;
                 };
-                Text = currentCommand;
+                //Text = currentCommand;
                 s += l + 1;
                 if (s + l > mp.Length)
                 {

@@ -56,11 +56,18 @@ namespace ALU_jet
             this.ALU1_BusValue_Label = new System.Windows.Forms.Label();
             this.ALU1_AValue_Label = new System.Windows.Forms.Label();
             this.ALU1_BValue_Label = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ALU1_SValue_Label = new System.Windows.Forms.Label();
+            this.ALU1_RValue_Label = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.ALU1_Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.ALU1_Micro_CMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ALU1_Background_PB)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // ALU1_Menu
@@ -304,12 +311,79 @@ namespace ALU_jet
             this.ALU1_BValue_Label.Text = "00000000";
             this.ALU1_BValue_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.ALU1_SValue_Label);
+            this.panel3.Controls.Add(this.ALU1_RValue_Label);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(225, 194);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(172, 76);
+            this.panel3.TabIndex = 12;
+            // 
+            // ALU1_SValue_Label
+            // 
+            this.ALU1_SValue_Label.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_SValue_Label.ForeColor = System.Drawing.Color.Black;
+            this.ALU1_SValue_Label.Location = new System.Drawing.Point(88, 1);
+            this.ALU1_SValue_Label.Name = "ALU1_SValue_Label";
+            this.ALU1_SValue_Label.Size = new System.Drawing.Size(83, 18);
+            this.ALU1_SValue_Label.TabIndex = 16;
+            this.ALU1_SValue_Label.Text = "00000000";
+            this.ALU1_SValue_Label.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // ALU1_RValue_Label
+            // 
+            this.ALU1_RValue_Label.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU1_RValue_Label.ForeColor = System.Drawing.Color.Black;
+            this.ALU1_RValue_Label.Location = new System.Drawing.Point(3, 1);
+            this.ALU1_RValue_Label.Name = "ALU1_RValue_Label";
+            this.ALU1_RValue_Label.Size = new System.Drawing.Size(83, 18);
+            this.ALU1_RValue_Label.TabIndex = 14;
+            this.ALU1_RValue_Label.Text = "00000000";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(3, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 18);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "АЛБ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(184, 195);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 18);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "R:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(398, 195);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 18);
+            this.label6.TabIndex = 16;
+            this.label6.Text = ":S";
+            // 
             // ALU1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.ALU1_BValue_Label);
             this.Controls.Add(this.ALU1_AValue_Label);
             this.Controls.Add(this.ALU1_BusValue_Label);
@@ -336,6 +410,7 @@ namespace ALU_jet
             this.panel2.PerformLayout();
             this.ALU1_Micro_CMS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ALU1_Background_PB)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,5 +444,11 @@ namespace ALU_jet
         private System.Windows.Forms.Label ALU1_BusValue_Label;
         private System.Windows.Forms.Label ALU1_AValue_Label;
         private System.Windows.Forms.Label ALU1_BValue_Label;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ALU1_RValue_Label;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label ALU1_SValue_Label;
+        private System.Windows.Forms.Label label6;
     }
 }
