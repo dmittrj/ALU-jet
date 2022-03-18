@@ -15,6 +15,7 @@ namespace ALU_jet
     public partial class ALU1 : Form
     {
         readonly Hashtable commands = new();
+        ListBox listy = new();
         string Bus = "00000000";
         string Ax = "00000000";
         string Bx = "00000000";
@@ -435,6 +436,8 @@ namespace ALU_jet
             commands["y30"] = "DR := 0";
             commands["y31"] = "DR := 1";
             commands["y32"] = "Q := R";
+            for (int i = 0; i < 32; i++)
+                listy.Items.Add(i.ToString() + ": " + commands["y" + i.ToString()]);
             Bitmap alu1bmp = new(ALU1_Background_PB.Width, ALU1_Background_PB.Height);
             using Graphics grfx = Graphics.FromImage(alu1bmp);
             Point[] shina =
@@ -589,7 +592,24 @@ namespace ALU_jet
         private void ALU1_Microprogram_RTB_TextChanged(object sender, EventArgs e)
         {
             ALU1_Temp_RTB.ForeColor = Color.Black;
-            ALU1_SyntaxHighlight_Timer.Start();
+            if (ALU1_Temp_RTB.Text != ALU1_Microprogram_RTB.Text) {
+                if (ALU1_Microprogram_RTB.SelectionStart > 0 && ALU1_Microprogram_RTB.Text.Substring(ALU1_Microprogram_RTB.SelectionStart - 1, 1) == "y")
+                {
+                    ALU_Hint.Location = new Point(ALU1_Microprogram_RTB.Location.X + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).X + 3,
+                        ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 2);
+                    ALU_Hint.Items.Clear();
+                    foreach (var item in listy.Items)
+                    {
+                        ALU_Hint.Items.Add(item);
+                    }
+                    ALU_Hint.Visible = true;
+                }
+                else
+                {
+                    ALU_Hint.Visible = false;
+                }
+                ALU1_SyntaxHighlight_Timer.Start();
+            }
             //ALU1_Microprogram_RTB.Se
         }
 

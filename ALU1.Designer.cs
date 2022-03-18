@@ -32,6 +32,7 @@ namespace ALU_jet
             this.components = new System.ComponentModel.Container();
             this.ALU1_Menu = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ALU_Save_MSI = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ALU1_AxTurn = new System.Windows.Forms.Button();
             this.ALU1_RegAx_Label = new System.Windows.Forms.TextBox();
@@ -88,7 +89,7 @@ namespace ALU_jet
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.ALU_Save_MSI = new System.Windows.Forms.ToolStripMenuItem();
+            this.ALU_Hint = new System.Windows.Forms.ListBox();
             this.ALU1_Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -119,6 +120,13 @@ namespace ALU_jet
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
             this.файлToolStripMenuItem.Text = "Файл";
+            // 
+            // ALU_Save_MSI
+            // 
+            this.ALU_Save_MSI.Name = "ALU_Save_MSI";
+            this.ALU_Save_MSI.Size = new System.Drawing.Size(145, 24);
+            this.ALU_Save_MSI.Text = "Сохранить";
+            this.ALU_Save_MSI.Click += new System.EventHandler(this.ALU_Save_MSI_Click);
             // 
             // panel1
             // 
@@ -691,12 +699,23 @@ namespace ALU_jet
             this.label15.TabIndex = 30;
             this.label15.Text = ":p0";
             // 
-            // ALU_Save_MSI
+            // ALU_Hint
             // 
-            this.ALU_Save_MSI.Name = "ALU_Save_MSI";
-            this.ALU_Save_MSI.Size = new System.Drawing.Size(180, 24);
-            this.ALU_Save_MSI.Text = "Сохранить";
-            this.ALU_Save_MSI.Click += new System.EventHandler(this.ALU_Save_MSI_Click);
+            this.ALU_Hint.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ALU_Hint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ALU_Hint.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU_Hint.FormattingEnabled = true;
+            this.ALU_Hint.ItemHeight = 15;
+            this.ALU_Hint.Items.AddRange(new object[] {
+            "0: Шина := Ах",
+            "1: А := Шина",
+            "2: Шина := Вх",
+            "3: В := Шина"});
+            this.ALU_Hint.Location = new System.Drawing.Point(638, 58);
+            this.ALU_Hint.Name = "ALU_Hint";
+            this.ALU_Hint.Size = new System.Drawing.Size(153, 197);
+            this.ALU_Hint.TabIndex = 31;
+            this.ALU_Hint.Visible = false;
             // 
             // ALU1
             // 
@@ -704,6 +723,7 @@ namespace ALU_jet
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.ALU_Hint);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -820,5 +840,6 @@ namespace ALU_jet
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ToolStripMenuItem ALU_Save_MSI;
+        private System.Windows.Forms.ListBox ALU_Hint;
     }
 }
