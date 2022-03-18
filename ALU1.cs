@@ -50,6 +50,35 @@ namespace ALU_jet
             return bn;
         }
 
+        private string TagDescriptor(string tag)
+        {
+            if (tag == "x1")
+            {
+                return p8.ToString();
+            }
+            if (tag == "x2")
+            {
+                return ALU1_DLValue_Label.Text;
+            }
+            if (tag == "x3")
+            {
+                return ALU1_DRValue_Label.Text;
+            }
+            if (tag == "x4")
+            {
+                return counter == 8 ? "1" : "0";
+            }
+            if (tag == "x5")
+            {
+                return counter > 3 ? "1" : "0";
+            }
+            if (tag == "x6")
+            {
+                return (p8.ToString() == ALU1_DLValue_Label.Text) ? "0" : "1";
+            }
+            return tag;
+        }
+
         private bool PerformCommand(string command)
         {
             if (command == "y0")
@@ -731,6 +760,10 @@ namespace ALU_jet
         {
             int s = 0;
             int l = 1;
+            int jump = 0;
+            string tag = "";
+            string inverce = "";
+            string lbl = "";
             ALU1_Microprogram_RTB.ReadOnly = true;
             string mp = ALU1_Microprogram_RTB.Text;
             if (mp.Length == 0) return;
@@ -740,12 +773,54 @@ namespace ALU_jet
             {
                 while (currentCommand[^1] != ',' &&
                     currentCommand[^1] != ' ' &&
+                    currentCommand[^1] != ':' &&
+                    currentCommand[^1] != ';' &&
                     currentCommand[^1] != '\n')
                 {
                     if (s + l >= mp.Length) {
                         break;
                     };
                     currentCommand = mp.Substring(s, ++l);
+                }
+                if (currentCommand[^1] == ':') goto _ALU1_Skip;
+                if (jump > 0)
+                {
+                    if (currentCommand == " ") {
+                        s--;
+                        goto _ALU1_Skip;
+                    }
+                    switch (jump)
+                    {
+                        case 1:
+                            tag = currentCommand[0..^1];
+                            break;
+                        case 2:
+                            inverce = currentCommand[0..^1];
+                            break;
+                        case 3:
+                            lbl = currentCommand[0..^1];
+                            break;
+                    }
+                    jump++;
+                    if (jump < 4)
+                    {
+                        s--;
+                        goto _ALU1_Skip;
+                    }
+                    else
+                    {
+                        if (TagDescriptor(tag) != inverce)
+                        {
+                            s = mp.IndexOf(lbl + ":");
+                        }
+                        jump = 0;
+                        s--;
+                        goto _ALU1_Skip;
+                    }
+                }
+                if (currentCommand[^1] == ';')
+                {
+                    jump = 1;
                 }
                 if (s + l < mp.Length)
                     currentCommand = mp.Substring(s, --l);
@@ -755,6 +830,7 @@ namespace ALU_jet
                     ALU1_Microprogram_RTB.ReadOnly = false;
                     return;
                 };
+                _ALU1_Skip:
                 //Text = currentCommand;
                 s += l + 1;
                 if (s + l > mp.Length)
