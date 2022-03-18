@@ -316,7 +316,7 @@ namespace ALU_jet
             if (command == "y23")
             {
                 counter++;
-                counter %= 8;
+                counter %= 9;
                 ALU1_RegCount_Label.Text = ToBin(counter, 4);
                 return false;
             }
@@ -764,6 +764,7 @@ namespace ALU_jet
             string tag = "";
             string inverce = "";
             string lbl = "";
+            bool emptyRegRequest = false;
             ALU1_Microprogram_RTB.ReadOnly = true;
             string mp = ALU1_Microprogram_RTB.Text;
             if (mp.Length == 0) return;
@@ -783,6 +784,10 @@ namespace ALU_jet
                     currentCommand = mp.Substring(s, ++l);
                 }
                 if (currentCommand[^1] == ':') goto _ALU1_Skip;
+                if (currentCommand[^1] == '\n')
+                {
+                    emptyRegRequest = true;
+                }
                 if (jump > 0)
                 {
                     if (currentCommand == " ") {
@@ -841,7 +846,17 @@ namespace ALU_jet
                 };
                 currentCommand = mp.Substring(s, 1);
                 l = 1;
-                await Task.Delay(30);
+                if (emptyRegRequest)
+                {
+                    emptyRegRequest = false;
+                    R = "00000000";
+                    S = "00000000";
+                    Q = "00000000";
+                    ALU1_RValue_Label.Text = R;
+                    ALU1_SValue_Label.Text = S;
+                    ALU1_QValue_Label.Text = Q;
+                }
+                await Task.Delay(10);
             }
         }
 
