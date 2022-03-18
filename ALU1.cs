@@ -22,6 +22,8 @@ namespace ALU_jet
         string R = "00000000";
         string S = "00000000";
         string Q = "00000000";
+        //int p0 = 0;
+        int p8 = 0;
 
         public ALU1()
         {
@@ -89,7 +91,7 @@ namespace ALU_jet
             if (command == "y8")
             {
                 Q = "";
-                int transfer = 0;
+                int transfer = Int16.Parse(ALU1_P0Value_Label.Text);
                 for (int i = 7; i >= 0; i--)
                 {
                     int partsum = Int16.Parse(R[i].ToString()) +
@@ -108,7 +110,113 @@ namespace ALU_jet
                             Q = "1" + Q;
                     }
                 }
+                p8 = transfer;
+                ALU1_P8Value_Label.Text = p8.ToString();
                 ALU1_QValue_Label.Text = Q;
+                return false;
+            }
+            if (command == "y9")
+            {
+                Q = "";
+                int transfer = -Int16.Parse(ALU1_P0Value_Label.Text);
+                for (int i = 7; i >= 0; i--)
+                {
+                    int partsum = Int16.Parse(R[i].ToString()) -
+                        Int16.Parse(S[i].ToString()) +
+                        transfer;
+                    if (partsum >= 0)
+                    {
+                        Q = partsum.ToString() + Q;
+                        transfer = 0;
+                    }
+                    else
+                    {
+                        transfer = -1;
+                        if (partsum == -1)
+                            Q = "1" + Q;
+                        if (partsum == -2)
+                            Q = "0" + Q;
+                    }
+                }
+                p8 = -transfer;
+                ALU1_P8Value_Label.Text = p8.ToString();
+                ALU1_QValue_Label.Text = Q;
+                return false;
+            }
+            if (command == "y10")
+            {
+                Q = "";
+                int transfer = -Int16.Parse(ALU1_P0Value_Label.Text);
+                for (int i = 7; i >= 0; i--)
+                {
+                    int partsum = Int16.Parse(S[i].ToString()) -
+                        Int16.Parse(R[i].ToString()) +
+                        transfer;
+                    if (partsum >= 0)
+                    {
+                        Q = partsum.ToString() + Q;
+                        transfer = 0;
+                    }
+                    else
+                    {
+                        transfer = -1;
+                        if (partsum == -1)
+                            Q = "1" + Q;
+                        if (partsum == -2)
+                            Q = "0" + Q;
+                    }
+                }
+                p8 = -transfer;
+                ALU1_P8Value_Label.Text = p8.ToString();
+                ALU1_QValue_Label.Text = Q;
+                return false;
+            }
+            if (command == "y11")
+            {
+                Q = "";
+                for (int i = 0; i <= 7; i++)
+                {
+                    Q += (R[i] == '1' && S[i] == '1') ? "1" : "0";
+                }
+                p8 = 0;
+                ALU1_P8Value_Label.Text = p8.ToString();
+                ALU1_QValue_Label.Text = Q;
+                return false;
+            }
+            if (command == "y12")
+            {
+                Q = "";
+                for (int i = 0; i <= 7; i++)
+                {
+                    Q += (R[i] == '1' || S[i] == '1') ? "1" : "0";
+                }
+                p8 = 0;
+                ALU1_P8Value_Label.Text = p8.ToString();
+                ALU1_QValue_Label.Text = Q;
+                return false;
+            }
+            if (command == "y13")
+            {
+                Q = "";
+                for (int i = 0; i <= 7; i++)
+                {
+                    Q += (R[i] == S[i]) ? "0" : "1";
+                }
+                p8 = 0;
+                ALU1_P8Value_Label.Text = p8.ToString();
+                ALU1_QValue_Label.Text = Q;
+                return false;
+            }
+            if (command == "y14")
+            {
+                //p0 = 0;
+                ALU1_P0Value_Label.Text = "0";
+                return false;
+            }
+            if (command == "y15")
+            {
+                //p0 = 0;
+                ALU1_P0Value_Label.Text = "1";
                 return false;
             }
             if (command == "y21")
@@ -194,6 +302,18 @@ namespace ALU_jet
                 new Point(439, 115),
                 new Point(435, 121)
             };
+            Point[] tr5 =
+            {
+                new Point(351, 155),
+                new Point(359, 155),
+                new Point(355, 161)
+            };
+            Point[] tr6 =
+            {
+                new Point(272, 155),
+                new Point(264, 155),
+                new Point(268, 161)
+            };
             grfx.DrawPolygon(new Pen(Brushes.Black, 1), shina);
             grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(172, 60), new Point(172, 75));
             grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr1);
@@ -203,7 +323,20 @@ namespace ALU_jet
             grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr3);
             grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(435, 94), new Point(435, 115));
             grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr4);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(355, 135), new Point(398, 135));
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(355, 135), new Point(355, 155));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr5);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(225, 135), new Point(268, 135));
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(268, 135), new Point(268, 155));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr6);
             ALU1_Background_PB.Image = alu1bmp;
+
+            Bitmap bindectirn = new(16, 16);
+            using Graphics grfxturn = Graphics.FromImage(bindectirn);
+            grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(2, 2, 2, 10));
+            grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(6, 2, 6, 10));
+            grfxturn.FillRectangle(Brushes.White, new Rectangle(8, 4, 2, 6));
+            ALU1_AxTurn.Image = bindectirn;
         }
 
         private void ALU1_FormClosing(object sender, FormClosingEventArgs e)
