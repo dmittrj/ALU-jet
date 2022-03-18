@@ -17,6 +17,8 @@ namespace ALU_jet
         string Bus = "00000000";
         string Ax = "00000000";
         string Bx = "00000000";
+        string AxDec = "0";
+        string BxDec = "0";
         string A = "00000000";
         string B = "00000000";
         string R = "00000000";
@@ -24,10 +26,24 @@ namespace ALU_jet
         string Q = "00000000";
         //int p0 = 0;
         int p8 = 0;
+        bool[] isBinary = { true, true, true, true };
 
         public ALU1()
         {
             InitializeComponent();
+        }
+
+        private static string ToBin(int dc)
+        {
+            string bn = "";
+            int ndc;
+            for (int i = 0; i < 8; i++)
+            {
+                ndc = dc / 2;
+                bn = (dc - ndc * 2).ToString() + bn;
+                dc = ndc;
+            }
+            return bn;
         }
 
         private bool PerformCommand(string command)
@@ -243,7 +259,7 @@ namespace ALU_jet
             commands["y8"] = "Q := R + S + p0";
             commands["y9"] = "Q := R - S - p0";
             commands["y10"] = "Q := S - R - p0";
-            commands["y11"] = "Q := S & R";
+            commands["y11"] = @"Q := S & R";
             commands["y12"] = "Q := S v R";
             commands["y13"] = "Q := S (+) R";
             commands["y14"] = "p0 := 0";
@@ -270,12 +286,12 @@ namespace ALU_jet
             Point[] shina =
             {
                 new Point(90, 85),
-                new Point(500, 85),
-                new Point(500, 430),
+                new Point(520, 85),
+                new Point(520, 430),
                 new Point(90, 430),
                 new Point(90, 422),
-                new Point(492, 422),
-                new Point(492, 93),
+                new Point(512, 422),
+                new Point(512, 93),
                 new Point(90, 93)
             };
             Point[] tr1 =
@@ -337,6 +353,7 @@ namespace ALU_jet
             grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(6, 2, 6, 10));
             grfxturn.FillRectangle(Brushes.White, new Rectangle(8, 4, 2, 6));
             ALU1_AxTurn.Image = bindectirn;
+            ALU1_BxTurn.Image = bindectirn;
         }
 
         private void ALU1_FormClosing(object sender, FormClosingEventArgs e)
@@ -486,8 +503,37 @@ namespace ALU_jet
 
         private void ALU1_RegAx_Label_TextChanged(object sender, EventArgs e)
         {
+            if (!isBinary[0])
+            {
+                foreach (char item in ALU1_RegAx_Label.Text)
+                {
+                    if (item != '0' && item != '1' && item != '2'
+                        && item != '3' && item != '4' && item != '5'
+                        && item != '6' && item != '7' && item != '8'
+                        && item != '9')
+                    {
+                        ALU1_RegAx_Label.Text = AxDec;
+                        return;
+                    }
+                }
+                if (Int16.Parse(ALU1_RegAx_Label.Text) > 255)
+                {
+                    ALU1_RegAx_Label.Text = AxDec;
+                    return;
+                }
+                AxDec = ALU1_RegAx_Label.Text;
+                Ax = ToBin(Int16.Parse(AxDec));
+                return;
+            }
             if (ALU1_RegAx_Label.Text.Length > 8)
             {
+                //ALU1_RegAx_Label.Text = ALU1_RegAx_Label.Text.Substring(0, ALU1_RegAx_Label.SelectionStart) +
+                //    ALU1_RegAx_Label.Text.Substring(ALU1_RegAx_Label.SelectionStart + 1, ALU1_RegAx_Label.Text.Length);
+                if (ALU1_RegAx_Label.SelectionStart == ALU1_RegAx_Label.Text.Length)
+                {
+                    ALU1_RegAx_Label.Text = ALU1_RegAx_Label.Text.Substring(0, 7);
+                    return;
+                }
                 ALU1_RegAx_Label.Select(ALU1_RegAx_Label.SelectionStart, 1);
                 ALU1_RegAx_Label.SelectedText = "";
             } 
@@ -508,8 +554,35 @@ namespace ALU_jet
 
         private void ALU1_RegBx_Label_TextChanged(object sender, EventArgs e)
         {
+            if (!isBinary[1])
+            {
+                foreach (char item in ALU1_RegBx_Label.Text)
+                {
+                    if (item != '0' && item != '1' && item != '2'
+                        && item != '3' && item != '4' && item != '5'
+                        && item != '6' && item != '7' && item != '8'
+                        && item != '9')
+                    {
+                        ALU1_RegBx_Label.Text = BxDec;
+                        return;
+                    }
+                }
+                if (Int16.Parse(ALU1_RegBx_Label.Text) > 255)
+                {
+                    ALU1_RegBx_Label.Text = BxDec;
+                    return;
+                }
+                BxDec = ALU1_RegBx_Label.Text;
+                Bx = ToBin(Int16.Parse(BxDec));
+                return;
+            }
             if (ALU1_RegBx_Label.Text.Length > 8)
             {
+                if (ALU1_RegBx_Label.SelectionStart == ALU1_RegBx_Label.Text.Length)
+                {
+                    ALU1_RegBx_Label.Text = ALU1_RegBx_Label.Text.Substring(0, 7);
+                    return;
+                }
                 ALU1_RegBx_Label.Select(ALU1_RegBx_Label.SelectionStart, 1);
                 ALU1_RegBx_Label.SelectedText = "";
             }
@@ -568,6 +641,92 @@ namespace ALU_jet
                 l = 1;
                 await Task.Delay(30);
             }
+        }
+
+        private void ALU1_AxTurn_Click(object sender, EventArgs e)
+        {
+            Bitmap bindectirn = new(16, 16);
+            using Graphics grfxturn = Graphics.FromImage(bindectirn);
+            
+            if (isBinary[0])
+            {
+                isBinary[0] = false;
+                string bn = ALU1_RegAx_Label.Text;
+                int dc = 0;
+                for (int i = 0; i < 8; i++)
+                {
+                    dc += Int16.Parse(bn[7 - i].ToString()) * (int)Math.Pow(2, i);
+                }
+                AxDec = dc.ToString();
+                ALU1_RegAx_Label.Text = AxDec;
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 2, 8, 2));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(9, 2, 2, 6));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 6, 8, 2));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 6, 2, 6));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 10, 8, 2));
+            }
+            else
+            {
+                isBinary[0] = true;
+                string bn = "";
+                int dc = Int16.Parse(ALU1_RegAx_Label.Text);
+                int ndc;
+                for (int i = 0; i < 8; i++)
+                {
+                    ndc = dc / 2;
+                    bn = (dc - ndc * 2).ToString() + bn;
+                    dc = ndc;
+                }
+                Ax = bn;
+                ALU1_RegAx_Label.Text = Ax;
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(2, 2, 2, 10));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(6, 2, 6, 10));
+                grfxturn.FillRectangle(Brushes.White, new Rectangle(8, 4, 2, 6));
+            }
+            ALU1_AxTurn.Image = bindectirn;
+        }
+
+        private void ALU1_BxTurn_Click(object sender, EventArgs e)
+        {
+            Bitmap bindectirn = new(16, 16);
+            using Graphics grfxturn = Graphics.FromImage(bindectirn);
+
+            if (isBinary[1])
+            {
+                isBinary[1] = false;
+                string bn = ALU1_RegBx_Label.Text;
+                int dc = 0;
+                for (int i = 0; i < 8; i++)
+                {
+                    dc += Int16.Parse(bn[7 - i].ToString()) * (int)Math.Pow(2, i);
+                }
+                BxDec = dc.ToString();
+                ALU1_RegBx_Label.Text = BxDec;
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 2, 8, 2));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(9, 2, 2, 6));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 6, 8, 2));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 6, 2, 6));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(3, 10, 8, 2));
+            }
+            else
+            {
+                isBinary[1] = true;
+                string bn = "";
+                int dc = Int16.Parse(ALU1_RegBx_Label.Text);
+                int ndc;
+                for (int i = 0; i < 8; i++)
+                {
+                    ndc = dc / 2;
+                    bn = (dc - ndc * 2).ToString() + bn;
+                    dc = ndc;
+                }
+                Bx = bn;
+                ALU1_RegBx_Label.Text = Bx;
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(2, 2, 2, 10));
+                grfxturn.FillRectangle(Brushes.DeepSkyBlue, new Rectangle(6, 2, 6, 10));
+                grfxturn.FillRectangle(Brushes.White, new Rectangle(8, 4, 2, 6));
+            }
+            ALU1_BxTurn.Image = bindectirn;
         }
     }
 }
