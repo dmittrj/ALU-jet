@@ -727,9 +727,17 @@ namespace ALU_jet
                         return;
                     }
                 }
-                if (Int16.Parse(ALU1_RegAx_Label.Text) > 255)
+                if (ALU1_RegAx_Label.Text != "")
                 {
-                    ALU1_RegAx_Label.Text = AxDec;
+                    if (Int16.Parse(ALU1_RegAx_Label.Text) > 255)
+                    {
+                        ALU1_RegAx_Label.Text = AxDec;
+                        return;
+                    }
+                } else
+                {
+                    AxDec = "0";
+                    Ax = "00000000";
                     return;
                 }
                 AxDec = ALU1_RegAx_Label.Text;
@@ -778,9 +786,18 @@ namespace ALU_jet
                         return;
                     }
                 }
-                if (Int16.Parse(ALU1_RegBx_Label.Text) > 255)
+                if (ALU1_RegBx_Label.Text != "")
                 {
-                    ALU1_RegBx_Label.Text = BxDec;
+                    if (Int16.Parse(ALU1_RegBx_Label.Text) > 255)
+                    {
+                        ALU1_RegBx_Label.Text = BxDec;
+                        return;
+                    }
+                }
+                else
+                {
+                    BxDec = "0";
+                    Bx = "00000000";
                     return;
                 }
                 BxDec = ALU1_RegBx_Label.Text;
