@@ -439,12 +439,12 @@ namespace ALU_jet
             Point[] shina =
             {
                 new Point(90, 85),
-                new Point(520, 85),
-                new Point(520, 430),
+                new Point(530, 85),
+                new Point(530, 430),
                 new Point(90, 430),
                 new Point(90, 422),
-                new Point(512, 422),
-                new Point(512, 93),
+                new Point(522, 422),
+                new Point(522, 93),
                 new Point(90, 93)
             };
             Point[] tr1 =
@@ -483,6 +483,48 @@ namespace ALU_jet
                 new Point(264, 155),
                 new Point(268, 161)
             };
+            Point[] tr7 =
+            {
+                new Point(410, 191),
+                new Point(410, 199),
+                new Point(403, 195)
+            };
+            Point[] tr8 =
+            {
+                new Point(169, 191),
+                new Point(169, 199),
+                new Point(162, 195)
+            };
+            Point[] tr9 =
+            {
+                new Point(318, 259),
+                new Point(310, 259),
+                new Point(314, 265)
+            };
+            Point[] tr10 =
+            {
+                new Point(240, 371),
+                new Point(240, 379),
+                new Point(232, 375)
+            };
+            Point[] tr11 =
+            {
+                new Point(384, 371),
+                new Point(384, 379),
+                new Point(391, 375)
+            };
+            Point[] tr12 =
+            {
+                new Point(174, 408),
+                new Point(166, 408),
+                new Point(170, 415)
+            };
+            Point[] tr13 =
+            {
+                new Point(446, 408),
+                new Point(454, 408),
+                new Point(450, 415)
+            };
             grfx.DrawPolygon(new Pen(Brushes.Black, 1), shina);
             grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(172, 60), new Point(172, 75));
             grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr1);
@@ -498,6 +540,20 @@ namespace ALU_jet
             grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(225, 135), new Point(268, 135));
             grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(268, 135), new Point(268, 155));
             grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr6);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(410, 195), new Point(467, 195));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr7);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(169, 195), new Point(226, 195));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr8);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(314, 242), new Point(314, 259));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr9);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(314, 290), new Point(314, 375));
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(240, 375), new Point(384, 375));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr10);
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr11);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(170, 394), new Point(170, 408));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr12);
+            grfx.DrawLine(new Pen(Brushes.Black, 2), new Point(450, 394), new Point(450, 408));
+            grfx.DrawPolygon(new Pen(Brushes.Black, 2), tr13);
             ALU1_Background_PB.Image = alu1bmp;
 
             Bitmap bindectirn = new(16, 16);
@@ -856,7 +912,7 @@ namespace ALU_jet
                     ALU1_SValue_Label.Text = S;
                     ALU1_QValue_Label.Text = Q;
                 }
-                await Task.Delay(10);
+                await Task.Delay(5);
             }
         }
 

@@ -79,12 +79,15 @@ namespace ALU_jet
             this.ALU1_CValue_Label = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ALU1_DTurn = new System.Windows.Forms.Button();
             this.ALU1_DValue_Label = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.ALU1_RegCount_Label = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.ALU1_DTurn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.ALU1_Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -591,6 +594,16 @@ namespace ALU_jet
             this.panel5.Size = new System.Drawing.Size(102, 58);
             this.panel5.TabIndex = 26;
             // 
+            // ALU1_DTurn
+            // 
+            this.ALU1_DTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ALU1_DTurn.Location = new System.Drawing.Point(3, 3);
+            this.ALU1_DTurn.Name = "ALU1_DTurn";
+            this.ALU1_DTurn.Size = new System.Drawing.Size(16, 16);
+            this.ALU1_DTurn.TabIndex = 22;
+            this.ALU1_DTurn.UseVisualStyleBackColor = true;
+            this.ALU1_DTurn.Click += new System.EventHandler(this.ALU1_DTurn_Click);
+            // 
             // ALU1_DValue_Label
             // 
             this.ALU1_DValue_Label.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -644,15 +657,36 @@ namespace ALU_jet
             this.label8.Text = "Сч";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // ALU1_DTurn
+            // label11
             // 
-            this.ALU1_DTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ALU1_DTurn.Location = new System.Drawing.Point(3, 3);
-            this.ALU1_DTurn.Name = "ALU1_DTurn";
-            this.ALU1_DTurn.Size = new System.Drawing.Size(16, 16);
-            this.ALU1_DTurn.TabIndex = 22;
-            this.ALU1_DTurn.UseVisualStyleBackColor = true;
-            this.ALU1_DTurn.Click += new System.EventHandler(this.ALU1_DTurn_Click);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(210, 299);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 18);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "DL:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(374, 299);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 18);
+            this.label12.TabIndex = 29;
+            this.label12.Text = ":DR";
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(486, 212);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 18);
+            this.label15.TabIndex = 30;
+            this.label15.Text = ":p0";
             // 
             // ALU1
             // 
@@ -660,6 +694,9 @@ namespace ALU_jet
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -769,5 +806,8 @@ namespace ALU_jet
         private System.Windows.Forms.TextBox ALU1_RegCount_Label;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button ALU1_DTurn;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label15;
     }
 }
