@@ -24,8 +24,10 @@ namespace ALU_jet
         string R = "00000000";
         string S = "00000000";
         string Q = "00000000";
+        string F = "00000000";
         //int p0 = 0;
         int p8 = 0;
+        int counter = 0;
         bool[] isBinary = { true, true, true, true };
 
         public ALU1()
@@ -33,11 +35,11 @@ namespace ALU_jet
             InitializeComponent();
         }
 
-        private static string ToBin(int dc)
+        private static string ToBin(int dc, int dig)
         {
             string bn = "";
             int ndc;
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < dig; i++)
             {
                 ndc = dc / 2;
                 bn = (dc - ndc * 2).ToString() + bn;
@@ -235,9 +237,57 @@ namespace ALU_jet
                 ALU1_P0Value_Label.Text = "1";
                 return false;
             }
+            if (command == "y16")
+            {
+                F = Q;
+                ALU1_FValue_Label.Text = F;
+                return false;
+            }
+            if (command == "y17")
+            {
+                F = ALU1_DLValue_Label.Text + Q.Substring(0, 7);
+                ALU1_DRValue_Label.Text = Q[7].ToString();
+                ALU1_FValue_Label.Text = F;
+                return false;
+            }
+            if (command == "y18")
+            {
+                F = Q.Substring(1, 7) + ALU1_DRValue_Label.Text;
+                ALU1_DLValue_Label.Text = Q[0].ToString();
+                ALU1_FValue_Label.Text = F;
+                return false;
+            }
+            if (command == "y19")
+            {
+                F = ALU1_DRValue_Label.Text + Q.Substring(0, 7);
+                ALU1_DRValue_Label.Text = Q[7].ToString();
+                ALU1_FValue_Label.Text = F;
+                return false;
+            }
+            if (command == "y20")
+            {
+                char Z;
+                Z = (p8.ToString() == ALU1_DLValue_Label.Text) ? '0' : '1';
+                F = Q.Substring(1, 7) + Z.ToString();
+                ALU1_FValue_Label.Text = F;
+                return false;
+            }
             if (command == "y21")
             {
                 return true;
+            }
+            if (command == "y22")
+            {
+                counter = 0;
+                ALU1_RegCount_Label.Text = ToBin(counter, 4);
+                return false;
+            }
+            if (command == "y23")
+            {
+                counter++;
+                counter %= 8;
+                ALU1_RegCount_Label.Text = ToBin(counter, 4);
+                return false;
             }
             if (command == " " || command == "," || command == "")
             {
@@ -522,7 +572,7 @@ namespace ALU_jet
                     return;
                 }
                 AxDec = ALU1_RegAx_Label.Text;
-                Ax = ToBin(Int16.Parse(AxDec));
+                Ax = ToBin(Int16.Parse(AxDec), 8);
                 return;
             }
             if (ALU1_RegAx_Label.Text.Length > 8)
@@ -573,7 +623,7 @@ namespace ALU_jet
                     return;
                 }
                 BxDec = ALU1_RegBx_Label.Text;
-                Bx = ToBin(Int16.Parse(BxDec));
+                Bx = ToBin(Int16.Parse(BxDec), 8);
                 return;
             }
             if (ALU1_RegBx_Label.Text.Length > 8)
