@@ -21,6 +21,7 @@ namespace ALU_jet
         string B = "00000000";
         string R = "00000000";
         string S = "00000000";
+        string Q = "00000000";
 
         public ALU1()
         {
@@ -83,6 +84,31 @@ namespace ALU_jet
                     S += digit == '1' ? "0" : "1";
                 }
                 ALU1_SValue_Label.Text = S;
+                return false;
+            }
+            if (command == "y8")
+            {
+                Q = "";
+                int transfer = 0;
+                for (int i = 7; i >= 0; i--)
+                {
+                    int partsum = Int16.Parse(R[i].ToString()) +
+                        Int16.Parse(S[i].ToString()) +
+                        transfer;
+                    if (partsum <= 1) { 
+                        Q = partsum.ToString() + Q;
+                        transfer = 0;
+                    }
+                    else
+                    {
+                        transfer = 1;
+                        if (partsum == 2)
+                            Q = "0" + Q;
+                        if (partsum == 3)
+                            Q = "1" + Q;
+                    }
+                }
+                ALU1_QValue_Label.Text = Q;
                 return false;
             }
             if (command == "y21")
