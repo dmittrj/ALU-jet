@@ -31,12 +31,12 @@ namespace ALU_jet
         {
             this.Jd_CreateProject_Label = new System.Windows.Forms.Label();
             this.Main_ProjectTypes_LB = new System.Windows.Forms.ListBox();
-            this.Jd_ProjectName_TB = new System.Windows.Forms.TextBox();
-            this.Jd_ProjectExtension_Label = new System.Windows.Forms.Label();
+            this.Main_ProjectName_TB = new System.Windows.Forms.TextBox();
+            this.Main_ProjectExtension_Label = new System.Windows.Forms.Label();
             this.Main_Description_Label = new System.Windows.Forms.Label();
             this.Main_CreateProject_Button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.Main_Projects_LB = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -62,23 +62,22 @@ namespace ALU_jet
             this.Main_ProjectTypes_LB.TabIndex = 1;
             this.Main_ProjectTypes_LB.SelectedIndexChanged += new System.EventHandler(this.Main_ProjectTypes_LB_SelectedIndexChanged);
             // 
-            // Jd_ProjectName_TB
+            // Main_ProjectName_TB
             // 
-            this.Jd_ProjectName_TB.Location = new System.Drawing.Point(24, 311);
-            this.Jd_ProjectName_TB.Name = "Jd_ProjectName_TB";
-            this.Jd_ProjectName_TB.Size = new System.Drawing.Size(206, 23);
-            this.Jd_ProjectName_TB.TabIndex = 2;
-            this.Jd_ProjectName_TB.Text = "Имя проекта...";
+            this.Main_ProjectName_TB.Location = new System.Drawing.Point(24, 311);
+            this.Main_ProjectName_TB.Name = "Main_ProjectName_TB";
+            this.Main_ProjectName_TB.Size = new System.Drawing.Size(206, 23);
+            this.Main_ProjectName_TB.TabIndex = 2;
+            this.Main_ProjectName_TB.Text = "Имя проекта...";
             // 
-            // Jd_ProjectExtension_Label
+            // Main_ProjectExtension_Label
             // 
-            this.Jd_ProjectExtension_Label.AutoSize = true;
-            this.Jd_ProjectExtension_Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Jd_ProjectExtension_Label.Location = new System.Drawing.Point(232, 312);
-            this.Jd_ProjectExtension_Label.Name = "Jd_ProjectExtension_Label";
-            this.Jd_ProjectExtension_Label.Size = new System.Drawing.Size(34, 21);
-            this.Jd_ProjectExtension_Label.TabIndex = 3;
-            this.Jd_ProjectExtension_Label.Text = ".alu";
+            this.Main_ProjectExtension_Label.AutoSize = true;
+            this.Main_ProjectExtension_Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Main_ProjectExtension_Label.Location = new System.Drawing.Point(232, 312);
+            this.Main_ProjectExtension_Label.Name = "Main_ProjectExtension_Label";
+            this.Main_ProjectExtension_Label.Size = new System.Drawing.Size(0, 21);
+            this.Main_ProjectExtension_Label.TabIndex = 3;
             // 
             // Main_Description_Label
             // 
@@ -91,6 +90,7 @@ namespace ALU_jet
             // 
             // Main_CreateProject_Button
             // 
+            this.Main_CreateProject_Button.Enabled = false;
             this.Main_CreateProject_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Main_CreateProject_Button.Location = new System.Drawing.Point(24, 353);
             this.Main_CreateProject_Button.Name = "Main_CreateProject_Button";
@@ -110,16 +110,15 @@ namespace ALU_jet
             this.label2.TabIndex = 6;
             this.label2.Text = "Открыть проект";
             // 
-            // listBox1
+            // Main_Projects_LB
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Items.AddRange(new object[] {
-            "Проект ALU-1"});
-            this.listBox1.Location = new System.Drawing.Point(435, 61);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(206, 94);
-            this.listBox1.TabIndex = 7;
+            this.Main_Projects_LB.FormattingEnabled = true;
+            this.Main_Projects_LB.ItemHeight = 15;
+            this.Main_Projects_LB.Location = new System.Drawing.Point(435, 61);
+            this.Main_Projects_LB.Name = "Main_Projects_LB";
+            this.Main_Projects_LB.Size = new System.Drawing.Size(206, 94);
+            this.Main_Projects_LB.TabIndex = 7;
+            this.Main_Projects_LB.SelectedIndexChanged += new System.EventHandler(this.Main_Projects_LB_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -138,17 +137,18 @@ namespace ALU_jet
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(783, 478);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.Main_Projects_LB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Main_CreateProject_Button);
             this.Controls.Add(this.Main_Description_Label);
-            this.Controls.Add(this.Jd_ProjectExtension_Label);
-            this.Controls.Add(this.Jd_ProjectName_TB);
+            this.Controls.Add(this.Main_ProjectExtension_Label);
+            this.Controls.Add(this.Main_ProjectName_TB);
             this.Controls.Add(this.Main_ProjectTypes_LB);
             this.Controls.Add(this.Jd_CreateProject_Label);
             this.Name = "ALU_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ALU-jet — начало работы";
+            this.Load += new System.EventHandler(this.ALU_Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,12 +158,12 @@ namespace ALU_jet
 
         private System.Windows.Forms.Label Jd_CreateProject_Label;
         private System.Windows.Forms.ListBox Main_ProjectTypes_LB;
-        private System.Windows.Forms.TextBox Jd_ProjectName_TB;
-        private System.Windows.Forms.Label Jd_ProjectExtension_Label;
+        private System.Windows.Forms.TextBox Main_ProjectName_TB;
+        private System.Windows.Forms.Label Main_ProjectExtension_Label;
         private System.Windows.Forms.Label Main_Description_Label;
         private System.Windows.Forms.Button Main_CreateProject_Button;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox Main_Projects_LB;
         private System.Windows.Forms.Button button2;
     }
 }

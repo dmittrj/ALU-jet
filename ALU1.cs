@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -565,6 +566,19 @@ namespace ALU_jet
             ALU1_BxTurn.Image = bindectirn;
             ALU1_CTurn.Image = bindectirn;
             ALU1_DTurn.Image = bindectirn;
+
+            try
+            {
+                FileInfo fileInfo = new FileInfo(ALU_Main.CurrentProject);
+                using (FileStream fstream = File.OpenRead(fileInfo.FullName))
+                {
+                    byte[] array = new byte[fstream.Length];
+                    fstream.Read(array, 0, array.Length);
+                    string textFromFile = System.Text.Encoding.Default.GetString(array);
+                    ALU1_Microprogram_RTB.Text = textFromFile;
+                }
+            }
+            catch { }
         }
 
         private void ALU1_FormClosing(object sender, FormClosingEventArgs e)
@@ -1099,6 +1113,20 @@ namespace ALU_jet
                 grfxturn.FillRectangle(Brushes.White, new Rectangle(8, 4, 2, 6));
             }
             ALU1_DTurn.Image = bindectirn;
+        }
+
+        private void ALU_Save_MSI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FileInfo fileInfo = new FileInfo(ALU_Main.CurrentProject);
+                if (fileInfo.Name == "") return;
+                FileStream file = fileInfo.Create();
+                byte[] array = System.Text.Encoding.Default.GetBytes(ALU1_Microprogram_RTB.Text);
+                file.Write(array);
+                file.Close();
+            }
+            catch { }
         }
     }
 }

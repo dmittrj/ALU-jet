@@ -88,6 +88,7 @@ namespace ALU_jet
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.ALU_Save_MSI = new System.Windows.Forms.ToolStripMenuItem();
             this.ALU1_Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -112,6 +113,8 @@ namespace ALU_jet
             // 
             // файлToolStripMenuItem
             // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ALU_Save_MSI});
             this.файлToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
@@ -688,6 +691,13 @@ namespace ALU_jet
             this.label15.TabIndex = 30;
             this.label15.Text = ":p0";
             // 
+            // ALU_Save_MSI
+            // 
+            this.ALU_Save_MSI.Name = "ALU_Save_MSI";
+            this.ALU_Save_MSI.Size = new System.Drawing.Size(180, 24);
+            this.ALU_Save_MSI.Text = "Сохранить";
+            this.ALU_Save_MSI.Click += new System.EventHandler(this.ALU_Save_MSI_Click);
+            // 
             // ALU1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -809,5 +819,6 @@ namespace ALU_jet
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ToolStripMenuItem ALU_Save_MSI;
     }
 }
