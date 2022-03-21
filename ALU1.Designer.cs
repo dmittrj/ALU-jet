@@ -703,7 +703,7 @@ namespace ALU_jet
             // 
             this.ALU_Hint.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ALU_Hint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ALU_Hint.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ALU_Hint.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ALU_Hint.FormattingEnabled = true;
             this.ALU_Hint.ItemHeight = 15;
             this.ALU_Hint.Items.AddRange(new object[] {
@@ -713,7 +713,7 @@ namespace ALU_jet
             "3: В := Шина"});
             this.ALU_Hint.Location = new System.Drawing.Point(638, 58);
             this.ALU_Hint.Name = "ALU_Hint";
-            this.ALU_Hint.Size = new System.Drawing.Size(153, 197);
+            this.ALU_Hint.Size = new System.Drawing.Size(168, 167);
             this.ALU_Hint.TabIndex = 31;
             this.ALU_Hint.Visible = false;
             // 
