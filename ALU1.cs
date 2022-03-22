@@ -19,6 +19,7 @@ namespace ALU_jet
         ListBox listy1 = new();
         ListBox listy2 = new();
         ListBox listy3 = new();
+        ListBox listx = new();
         string Bus = "00000000";
         string Ax = "00000000";
         string Bx = "00000000";
@@ -450,6 +451,12 @@ namespace ALU_jet
             listy3.Items.Add("y3: " + commands["y3"]);
             for (int i = 30; i <= 32; i++)
                 listy3.Items.Add("y3" + i.ToString()[1..] + ": " + commands["y" + i.ToString()]);
+            listx.Items.Add("x1: p8");
+            listx.Items.Add("x2: DL");
+            listx.Items.Add("x3: DR");
+            listx.Items.Add("x4: Счетчик = 8?");
+            listx.Items.Add("x5: Счетчик > 3?");
+            listx.Items.Add("x6: p8 (+) DL");
             Bitmap alu1bmp = new(ALU1_Background_PB.Width, ALU1_Background_PB.Height);
             using Graphics grfx = Graphics.FromImage(alu1bmp);
             Point[] shina =
@@ -657,7 +664,21 @@ namespace ALU_jet
                             }
                             else
                             {
-                                ALU_Hint.Visible = false;
+                                if (ALU1_Microprogram_RTB.SelectionStart > 1 && ALU1_Microprogram_RTB.Text.Substring(ALU1_Microprogram_RTB.SelectionStart - 1, 1) == "x")
+                                {
+                                    ALU_Hint.Location = new Point(ALU1_Microprogram_RTB.Location.X + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).X - 3,
+                                        ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                                    ALU_Hint.Items.Clear();
+                                    foreach (var item in listx.Items)
+                                    {
+                                        ALU_Hint.Items.Add(item);
+                                    }
+                                    ALU_Hint.Visible = true;
+                                }
+                                else
+                                {
+                                    ALU_Hint.Visible = false;
+                                }
                             }
                         }
                     }
