@@ -1002,6 +1002,7 @@ namespace ALU_jet
                         }
                         jump = 0;
                         s--;
+                        emptyRegRequest = true;
                         goto _ALU1_Skip;
                     }
                 }
