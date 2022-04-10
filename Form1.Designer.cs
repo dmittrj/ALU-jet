@@ -55,7 +55,8 @@ namespace ALU_jet
             this.Main_ProjectTypes_LB.FormattingEnabled = true;
             this.Main_ProjectTypes_LB.ItemHeight = 15;
             this.Main_ProjectTypes_LB.Items.AddRange(new object[] {
-            "Проект ALU-1"});
+            "Проект ALU-1",
+            "Проект ALU-R"});
             this.Main_ProjectTypes_LB.Location = new System.Drawing.Point(24, 61);
             this.Main_ProjectTypes_LB.Name = "Main_ProjectTypes_LB";
             this.Main_ProjectTypes_LB.Size = new System.Drawing.Size(206, 244);

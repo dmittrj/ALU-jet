@@ -18,11 +18,13 @@ namespace ALU_jet
 
         readonly string[] Main_ProjectTypesDescriptions =
         {
-            "Проект ALU-1 — восьмиразрядного двоичного АЛУ,\nс которым взаимодействует управляющий автомат"
+            "Проект ALU-1 — восьмиразрядного двоичного АЛУ,\nс которым взаимодействует управляющий автомат",
+            "Проект ALU-R — восьмиразрядного двоичного АЛУ\nс двухпортовым регистровым СОЗУ"
         };
         readonly string[] Main_ProjectExtensions =
         {
-            ".alu1"
+            ".alu1",
+            ".alur"
         };
         public ALU_Main()
         {
@@ -54,7 +56,7 @@ namespace ALU_jet
             foreach (string p_file in ALU_Files)
             {
                 FileInfo info = new(p_file);
-                if (info.Extension == ".alu1")
+                if (info.Extension == ".alu1" || info.Extension == ".alur")
                 {
                     Main_Projects_LB.Items.Add(info.Name);
                 }
