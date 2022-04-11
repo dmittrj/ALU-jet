@@ -616,6 +616,11 @@ namespace ALU_jet
                 {
                     ALU_Hint.Location = new Point(ALU1_Microprogram_RTB.Location.X + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).X - 3,
                         ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                    if (ALU_Hint.Location.X + ALU_Hint.Width > Width)
+                    {
+                        ALU_Hint.Location = new Point(Width - ALU_Hint.Width,
+                        ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                    }
                     ALU_Hint.Items.Clear();
                     foreach (var item in listy.Items)
                     {
@@ -629,6 +634,11 @@ namespace ALU_jet
                     {
                         ALU_Hint.Location = new Point(ALU1_Microprogram_RTB.Location.X + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).X - 3,
                             ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                        if (ALU_Hint.Location.X + ALU_Hint.Width > Width)
+                        {
+                            ALU_Hint.Location = new Point(Width - ALU_Hint.Width,
+                            ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                        }
                         ALU_Hint.Items.Clear();
                         foreach (var item in listy1.Items)
                         {
@@ -642,6 +652,11 @@ namespace ALU_jet
                         {
                             ALU_Hint.Location = new Point(ALU1_Microprogram_RTB.Location.X + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).X - 3,
                                 ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                            if (ALU_Hint.Location.X + ALU_Hint.Width > Width)
+                            {
+                                ALU_Hint.Location = new Point(Width - ALU_Hint.Width,
+                                ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                            }
                             ALU_Hint.Items.Clear();
                             foreach (var item in listy2.Items)
                             {
@@ -655,6 +670,11 @@ namespace ALU_jet
                             {
                                 ALU_Hint.Location = new Point(ALU1_Microprogram_RTB.Location.X + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).X - 3,
                                     ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                                if (ALU_Hint.Location.X + ALU_Hint.Width > Width)
+                                {
+                                    ALU_Hint.Location = new Point(Width - ALU_Hint.Width,
+                                    ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                                }
                                 ALU_Hint.Items.Clear();
                                 foreach (var item in listy3.Items)
                                 {
@@ -668,6 +688,11 @@ namespace ALU_jet
                                 {
                                     ALU_Hint.Location = new Point(ALU1_Microprogram_RTB.Location.X + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).X - 3,
                                         ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                                    if (ALU_Hint.Location.X + ALU_Hint.Width > Width)
+                                    {
+                                        ALU_Hint.Location = new Point(Width - ALU_Hint.Width,
+                                        ALU1_Microprogram_RTB.Location.Y + ALU1_Microprogram_RTB.GetPositionFromCharIndex(ALU1_Microprogram_RTB.SelectionStart).Y + 18);
+                                    }
                                     ALU_Hint.Items.Clear();
                                     foreach (var item in listx.Items)
                                     {
